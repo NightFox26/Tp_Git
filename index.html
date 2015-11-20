@@ -32,6 +32,10 @@
 		width:100%;		
 		}
 		
+		.image {
+		margin-top:20px;
+		}
+		
 		.well {
 		background-color:rgba(128,128,128,0.5);		
 		}
@@ -47,24 +51,32 @@
 		</style>		
 	</head>	
 	
-	<body>	
+	<body id="git" data-spy="scroll" data-target=".navbar">	
+	
 	<div class="container">
 		<header>
-			<nav class="navbar navbar-inverse navbar-fixed-top">
+			<nav class="navbar navbar-inverse navbar-fixed-top" >
 				<div class="container">
-					<div class="navbar-header">							
-						<a class="navbar-brand" >Debuter avec Git</a>
-					</div>
+					<div class="navbar-header">	
+						<a href="#git" class="navbar-brand" >Debuter avec Git</a>
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>						
+					</div>						
 						
 					<div class="collapse navbar-collapse">
-						<ul class="nav navbar-nav">								
-							<li><a href="#"><span class="glyphicon glyphicon-ok-sign"></span> Les Commit</a></li>
-							<li><a href= "#"><span class="glyphicon glyphicon-heart"></span> Le Git Log</a></li>
-							<li><a href="#"><span class="glyphicon glyphicon-cog"></span> La Branche</a></li>
+						<ul class="nav navbar-nav">	
+							<li class="hidden"><a href="#page-top"></a></li>
+							<li><a href="#commit"><span class="glyphicon glyphicon-ok-sign"></span> Les Commit</a></li>
+							<li><a href= "#log"><span class="glyphicon glyphicon-heart"></span> Le Git Log</a></li>
+							<li><a href="#branche"><span class="glyphicon glyphicon-cog"></span> La Branche</a></li>
 						</ul>
 					</div>
 				</div>
-		</header>		
+			</nav>
+		</header>			
 		
 		<div class="row well" >		
 			<div class="col-sm-12 col-md-8 col-lg-9">
@@ -72,8 +84,8 @@
 				<h2> A quoi sert Git ?</h2>
 				<p><blockquote>Git est un logiciel que vous installez sur votre ordinateur et qui sert a créer des versions sur tout type de documents se trouvant sur votre ordinateur.<br/>
 				Cela peut etre des fichiers de programation que vous etes en train de créer, ou bien un fichier Word, ou bien encore une image, etc...<br/><br/>
-				L'avantage quand l'on utilise Git c'est de pouvoir creer un <strong><a href="#">Commit</a></strong> a chaque étape de la création de son projet....et croyez moi, un simple petit <strong><a href="#">Commit</a></strong> pourra peut etre un jour vous sauvez la vie....du moins la vie de votre projet.<br/><br/>
-				Pour comprendre ce qu'est un <strong><a href="#">Commit</a></strong> vous pouvez cliquer sur le lien associé !</blockquote></p>
+				L'avantage quand l'on utilise Git c'est de pouvoir creer un <strong><a href="#commit">Commit</a></strong> a chaque étape de la création de son projet....et croyez moi, un simple petit <strong><a href="#commit">Commit</a></strong> pourra peut etre un jour vous sauvez la vie....du moins la vie de votre projet.<br/><br/>
+				Pour comprendre ce qu'est un <strong><a href="#commit">Commit</a></strong> vous pouvez cliquer sur le lien associé !</blockquote></p>
 				
 				
 				<h2> Et GitHub alors ?</h2>
@@ -93,14 +105,14 @@
 			</div>
 			
 			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">				
-				<div class="col-xs-6 col-sm-3 col-md-12 col-lg-10"><img src="stuff/github.jpg"/></div>	
-				<div class="col-xs-6 col-sm-3 col-md-12 col-lg-10"><img src="stuff/git1.png"/></div>
-				<div class="col-xs-6 col-sm-3 col-md-12 col-lg-10"><img src="stuff/git2.png"/></div>
-				<div class="col-xs-6 col-sm-3 col-md-12 col-lg-10"><img src="stuff/git3.png"/></div>	
+				<div class="col-xs-6 col-sm-3 col-md-12 col-lg-10 image"><img src="stuff/github.jpg"/></div>	
+				<div class="col-xs-6 col-sm-3 col-md-12 col-lg-10 image"><img src="stuff/git1.png"/></div>
+				<div class="col-xs-6 col-sm-3 col-md-12 col-lg-10 image"><img src="stuff/git2.png"/></div>
+				<div class="col-xs-6 col-sm-3 col-md-12 col-lg-10 image"><img src="stuff/git3.png"/></div>	
 			</div>
 		</div>
 	
-		<div class="row well" >		
+		<div class="row well" id="commit" >		
 			<div class="col-sm-6 col-sm-push-6">
 				<h2> Qu'est ce qu'un Commit ?</h2>
 				<p>texteeeee</p>
@@ -112,7 +124,7 @@
 			</div>
 		</div>	
 		
-		<div class="row well" >	
+		<div class="row well" id="log">	
 			<div class="col-sm-4 col-sm-offset-4">
 				<img src="stuff/github.jpg" />			
 			</div>
@@ -129,7 +141,7 @@
 			</div>
 		</div>
 		
-		<div class="row well" >
+		<div class="row well" id="branche">
 			<div class="col-sm-3 ">
 				<img src="stuff/github.jpg" />			
 			</div>
@@ -146,5 +158,26 @@
 		
 	
 	</div>	
+	
+	<!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- Javascript de Bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	
+	<script>
+      // Scrollspy fluide
+      $(function () {
+        $('header a').on('click', function(e) {
+          e.preventDefault();
+          var hash = this.hash;
+          $('html, body').animate({
+            scrollTop: $(this.hash).offset().top
+          }, 1000, function(){
+            window.location.hash = hash;
+          });
+        });
+      });
+    </script>
+	
 	</body>
 </html>
